@@ -1,0 +1,130 @@
+/*  ==========================================================================
+    Configurações Globais e Variáveis
+    ========================================================================== */
+
+/*  Importação da fonte */
+@font-face {
+    font-family: 'Sarpanch';
+    src: url('../font/Sarpanch-Regular.ttf');
+}
+
+:root {
+    /* Cores */
+    --color-background: #222222;
+    --color-background-nav: #272727;
+    --color-text: #FFFFFF;
+    --color-accent: #FFFFFF;
+
+    /* Fontes */
+    --font-primary: 'Sarpanch', sans-serif;
+
+    /* Z-index (Controle de Camadas) */
+    --z-overlay: 3;
+    --z-overlay-text: 2;
+    --z-overlay-divisor: 1;
+
+    /* Espaçamento */
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 3.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+}
+
+/*  ==========================================================================
+    Animação de Introdução
+    ========================================================================== */
+
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: var(--z-overlay);
+    display: flex;
+    overflow: hidden;
+}
+
+.intro-panel {
+    flex: 1;
+    position: relative;
+    background-color: var(--color-background);
+    transition: transform 1.8s ease;
+}
+
+.intro-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 7rem;
+    white-space: nowrap;
+    z-index: var(--z-overlay-text);
+}
+
+.divisor {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: var(--color-accent);
+    z-index: var(--z-overlay-divisor);
+}
+
+.intro-panel.left .intro-text {
+    right: var(--space-xl);
+}
+.intro-panel.left .divisor {
+    right: 0;
+}
+
+.intro-panel.right .intro-text {
+    left: var(--space-xl);
+}
+.intro-panel.right .divisor {
+    left: 0;
+}
+
+/* Modificadores de Animação */
+.intro-panel.left.animate-out {
+    transform: translateX(-100%);
+}
+.intro-panel.right.animate-out {
+    transform: translateX(100%);
+}
+
+/*  ==========================================================================
+    Menu de Navegação
+    ========================================================================== */
+
+.nav {
+    width: 100%; /* Melhor que 100vw */
+    padding: var(--space-sm);
+    background-color: var(--color-background-nav);
+}
+
+.nav_menu {
+    display: flex;
+    justify-content: flex-end; /* flex-end é mais comum que end */
+    margin-right: var(--space-md);
+    gap: var(--space-lg);
+    list-style: none;
+}
+
+.nav_item {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
