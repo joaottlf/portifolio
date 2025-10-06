@@ -128,3 +128,30 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+
+.home_content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.home_title {
+    margin-top: 2rem;
+}
+
+.home_icons {
+    margin-right: 1rem;
+}
+
+.home_icon {
+    width: 2rem;
+    cursor: pointer;
+    color: #FFFFFF;
+}
